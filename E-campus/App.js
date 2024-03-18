@@ -12,6 +12,7 @@ import SPgroups from './screens/SPgroups';
 import Department from './screens/department'; 
 import Notifications from './screens/notifications'; 
 import Messages from './screens/messages'; 
+import CourseDetails from './screens/CourseDetails'; 
 
 
 const Stack = createStackNavigator();
@@ -31,6 +32,7 @@ const App = () => {
         <Stack.Screen name="Department" component={Department} />
         <Stack.Screen name="Notifications" component={Notifications} />
         <Stack.Screen name="Messages" component={Messages} />
+        <Stack.Screen name="CourseDetails" component={CourseDetails} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { createStackNavigator } from '@react-navigation/stack';
+
 
 const Courses = () => {
     const navigation = useNavigation();
@@ -23,6 +25,19 @@ const Courses = () => {
   };
   const handleBottomNavBar = (screenName) => {
     navigation.navigate(screenName);
+  };
+
+  const CourseDetailsScreen = ({ route }) => {
+    // Extract course details from route.params
+    const { courseId, courseName, instructor } = route.params;
+  
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Course ID: {courseId}</Text>
+        <Text>Course Name: {courseName}</Text>
+        <Text>Instructor: {instructor}</Text>
+      </View>
+    );
   };
   
   return (
@@ -77,26 +92,52 @@ const Courses = () => {
     >
         <View style={styles.cardContainer}>
 
-              <View style={styles.courseCardRed}>
-                <Text style={styles.cardGrayText}>MAT202</Text>
-                <Text style={styles.cardBlueText}>Mathamtics</Text> 
-                <Text style={styles.lessonred}>Dr.Alex</Text>       
-              </View>
+        <TouchableOpacity
+          style={styles.courseCardRed}
+          onPress={() =>
+            navigation.navigate('CourseDetails', {
+              courseId: 'MAT202',
+              courseName: 'Mathematics',
+              instructor: 'Dr. Alex',
+            })
+          }
+        >
+          <Text style={styles.cardGrayText}>MAT202</Text>
+          <Text style={styles.cardBlueText}>Mathematics</Text>
+          <Text style={styles.lessonred}>Dr. Alex</Text>
+        </TouchableOpacity>
       
             
-              <View style={styles.courseCardGreen}>
-              <Text style={styles.cardGrayText}>MAT202</Text>
-              <Text style={styles.cardBlueText}>Programming</Text>
-              <Text style={styles.lessonred}>Dr.Alex</Text> 
-              </View>
-              
-              <View style={styles.courseCardBlue}>
-              <View style={styles.gradient}>
-                 <Text style={styles.cardGrayText}>MAT201</Text>
-                 <Text style={styles.cardBlueText}>Programming</Text>
-                 <Text style={styles.lessonred}>Dr.Alex</Text> 
-              </View>
-             </View>
+            
+        <TouchableOpacity
+          style={styles.courseCardGreen}
+          onPress={() =>
+            navigation.navigate('CourseDetails', {
+              courseId: 'MAT202',
+              courseName: 'Mathematics',
+              instructor: 'Dr. Alex',
+            })
+          }
+        >
+          <Text style={styles.cardGrayText}>MAT202</Text>
+          <Text style={styles.cardBlueText}>Mathematics</Text>
+          <Text style={styles.lessonred}>Dr. Alex</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.courseCardBlue}
+          onPress={() =>
+            navigation.navigate('CourseDetails', {
+              courseId: 'MAT202',
+              courseName: 'Mathematics',
+              instructor: 'Dr. Alex',
+            })
+          }
+        >
+          <Text style={styles.cardGrayText}>PRG202</Text>
+          <Text style={styles.cardBlueText}>Programming</Text>
+          <Text style={styles.lessonred}>Dr. Alex</Text>
+        </TouchableOpacity>
+      
         </View>
         </ScrollView>
 
@@ -109,27 +150,52 @@ const Courses = () => {
       contentContainerStyle={{ paddingHorizontal: 20 }}
     >
         <View style={styles.bottomcardContainer}>
-
-              <View style={styles.courseCardRed}>
-                <Text style={styles.cardGrayText}>MAT202</Text>
-                <Text style={styles.cardBlueText}>Mathamtics</Text> 
-                <Text style={styles.lessonred}>Dr.Alex</Text>       
-              </View>
+        <TouchableOpacity
+          style={styles.courseCardRed}
+          onPress={() =>
+            navigation.navigate('CourseDetails', {
+              courseId: 'MAT202',
+              courseName: 'Mathematics',
+              instructor: 'Dr. Alex',
+            })
+          }
+        >
+          <Text style={styles.cardGrayText}>MAT202</Text>
+          <Text style={styles.cardBlueText}>Mathematics</Text>
+          <Text style={styles.lessonred}>Dr. Alex</Text>
+        </TouchableOpacity>
       
             
-              <View style={styles.courseCardGreen}>
-              <Text style={styles.cardGrayText}>MAT202</Text>
-              <Text style={styles.cardBlueText}>Programming</Text>
-              <Text style={styles.lessonred}>Dr.Alex</Text> 
-              </View>
-              
-              <View style={styles.courseCardBlue}>
-              <View style={styles.gradient}>
-                 <Text style={styles.cardGrayText}>MAT201</Text>
-                 <Text style={styles.cardBlueText}>Programming</Text>
-                 <Text style={styles.lessonred}>Dr.Alex</Text> 
-              </View>
-             </View>
+            
+        <TouchableOpacity
+          style={styles.courseCardGreen}
+          onPress={() =>
+            navigation.navigate('CourseDetails', {
+              courseId: 'MAT202',
+              courseName: 'Mathematics',
+              instructor: 'Dr. Alex',
+            })
+          }
+        >
+          <Text style={styles.cardGrayText}>MAT202</Text>
+          <Text style={styles.cardBlueText}>Mathematics</Text>
+          <Text style={styles.lessonred}>Dr. Alex</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.courseCardBlue}
+          onPress={() =>
+            navigation.navigate('CourseDetails', {
+              courseId: 'MAT202',
+              courseName: 'Mathematics',
+              instructor: 'Dr. Alex',
+            })
+          }
+        >
+          <Text style={styles.cardGrayText}>PRG202</Text>
+          <Text style={styles.cardBlueText}>Programming</Text>
+          <Text style={styles.lessonred}>Dr. Alex</Text>
+        </TouchableOpacity>
+      
         </View>
         </ScrollView>
         </ScrollView>
