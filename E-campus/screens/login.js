@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom:20,
     color: '#223F76',
-    textDecorationLine: true
+   
   },
   input: {
     width: '80%',

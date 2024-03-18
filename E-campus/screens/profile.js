@@ -26,6 +26,47 @@ const STDProfile = () => {
   const handleBottomNavBar = (screenName) => {
     navigation.navigate(screenName);
   };
+  const [selectedDay, setSelectedDay] = useState('Mon'); // Initial selected day is Monday
+
+  const renderTimetable = () => {
+    // Logic to render timetable based on selected day
+    switch (selectedDay) {
+      case 'Mon':
+        return (
+          <>
+          
+            {/* Timetable for Monday */}
+            
+            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+         </>
+        
+        );
+      case 'Tue':
+        return (
+          <>
+            {/* Timetable for Tuesday */}
+            
+            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            </>
+          
+         
+        );
+     
+      default:
+        return null;
+    }
+  };
+
   
   return (
    
@@ -76,7 +117,9 @@ const STDProfile = () => {
             <Text style={styles.username}>Nisreen Bouta</Text>
             <Text style={styles.stdNum}>2012031563</Text>
             <View style={styles.majorRec}>
-            <Text style={styles.majorRecText}><FontAwesome name="graduation-cap" size={20} color="white" />  Computer Engineering - Faculty of Engineering</Text>
+            <Text style={styles.majorRecText}>
+              <FontAwesome name="graduation-cap" size={20} color="white" />  
+              Computer Engineering - Faculty of Engineering</Text>
             </View>
 
             <View style={styles.smallRedRecContainer}>
@@ -92,48 +135,32 @@ const STDProfile = () => {
                 </View>
             </View>
 
-            <Text style={styles.heading}>Today’s Schedule</Text>
-      
-       <View style={styles.card}>
-          <View style={styles.weekdaysContainer}>
-              <View style={styles.weekdayRec}>
-                 <Text style={styles.weekdayText}>Mon</Text>
+      <Text style={styles.heading}>My Timetable</Text>
+      <View style={styles.card}>
+              <View style={styles.weekdaysContainer}>
+                {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                  <TouchableOpacity
+                    key={day}
+                    style={[
+                      styles.weekdayRec,
+                      selectedDay === day && { backgroundColor: '#C8272E' },
+                    ]}
+                    onPress={() => setSelectedDay(day)}>
+                    <Text style={[styles.weekdayText, selectedDay === day && { color: '#FFFFFF' }]}>
+                      {day}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
               </View>
-
-              <View style={styles.weekdayRec}>
-                 <Text style={styles.weekdayText}>Tue</Text>
+              {/* Render timetable based on the selected day */}
+              <ScrollView>
+              <View style={styles.recscontainer}>
+                {renderTimetable()}
               </View>
-
-              <View style={styles.weekdayRec}>
-                 <Text style={styles.weekdayText}>Wed</Text>
-              </View>
-
-              <View style={styles.weekdayRec}>
-                 <Text style={styles.weekdayText}>Thu</Text>
-              </View>
-
-              <View style={styles.weekdayRec}>
-                 <Text style={styles.weekdayText}>Fri</Text>
-              </View>
-              <View style={styles.weekdayRec}>
-                 <Text style={styles.weekdayText}>Sat</Text>
-              </View>
-          </View>
-          <View style={styles.recscontainer}>
-    
-          <ScrollView>
-            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-          </ScrollView>
-          </View>
-       </View>
-       </ScrollView>
+              </ScrollView>
+      </View>
+   
+  </ScrollView>
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
       </TouchableOpacity>
@@ -327,9 +354,9 @@ const styles = StyleSheet.create({
     marginHorizontal:15
 },
  card: {
-    flexDirection:'row',
+    
     width: 360,
-    height: 322,
+    height: 360,
     backgroundColor: '#E8E8E8',
     borderRadius: 4,
     shadowOpacity:50,
@@ -352,7 +379,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 16,
     marginTop: 30,
-  },
+    
+  }, 
 
   weekdayRec:{
     flexShrink: 0,
@@ -378,12 +406,12 @@ weekdayText: {
   color: '#C8272E'
 },
 recscontainer:{
-  flex:0, 
-  marginBottom:10
+  paddingVertical: 30,
+  paddingHorizontal:10,
 },
 
 redrec: {
-  width: '88%',
+  width: 330,
   height: 35,
   borderColor: '#F5F5F5',
   borderWidth: 1,
@@ -393,12 +421,12 @@ redrec: {
   padding:2,
   alignItems: 'left',
   paddingHorizontal:10,
-  marginLeft:'10%'
+  
 
   
 },
 greenrec: {
-  width: '88%',
+  width: 330,
   height: 35,
   borderColor: '#F5F5F5',
   borderWidth: 1,
@@ -408,11 +436,11 @@ greenrec: {
   marginBottom: 3,
   padding:2,
   paddingHorizontal:10,
-  marginLeft:'10%'
+  
   
 },
 yellowrec: {
-  width: '88%',
+  width: 330,
   height: 35,
   borderColor: '#F5F5F5',
   borderWidth: 1,
@@ -422,12 +450,12 @@ yellowrec: {
   marginBottom: 3,
   padding:2,
   paddingHorizontal:10,
-  marginLeft:'10%'
+  
   
 },
 
 bluerec: {
-  width: '88%',
+  width: 330,
   height: 35,
   borderColor: '#F5F5F5',
   borderWidth: 1,
@@ -437,8 +465,20 @@ bluerec: {
   marginBottom:3,
   padding:2,
   paddingHorizontal:10,
-  marginLeft:'10%'
   
+  
+},
+
+subsubtext: {
+  fontSize: 10,
+  textAlign: 'left',
+  color: '#223F76',
+
+},
+subsubredtext: {
+  fontSize: 12,
+  textAlign: 'center',
+  color: '#C8272E',
 },
 
 })

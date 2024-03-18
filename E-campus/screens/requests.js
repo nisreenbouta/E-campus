@@ -66,6 +66,9 @@ const Requests = () => {
         </View>
       )}
 
+
+
+
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
       </TouchableOpacity>
@@ -186,8 +189,8 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom:80
   },
- 
 
+  
 })
 
 export default Requests; 

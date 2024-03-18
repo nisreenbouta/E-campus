@@ -63,6 +63,76 @@ const Courses = () => {
       </TouchableOpacity>
         </View>
       )}
+      <ScrollView>
+
+<Text style={styles.heading}>Courses</Text>
+
+<View style={styles.headingRec}>
+            <Text style={styles.headingRecText}> Current Courses</Text>
+            </View>
+        <ScrollView
+      horizontal
+      style={{ flex: 1 }}
+      contentContainerStyle={{ paddingHorizontal: 20 }}
+    >
+        <View style={styles.cardContainer}>
+
+              <View style={styles.courseCardRed}>
+                <Text style={styles.cardGrayText}>MAT202</Text>
+                <Text style={styles.cardBlueText}>Mathamtics</Text> 
+                <Text style={styles.lessonred}>Dr.Alex</Text>       
+              </View>
+      
+            
+              <View style={styles.courseCardGreen}>
+              <Text style={styles.cardGrayText}>MAT202</Text>
+              <Text style={styles.cardBlueText}>Programming</Text>
+              <Text style={styles.lessonred}>Dr.Alex</Text> 
+              </View>
+              
+              <View style={styles.courseCardBlue}>
+              <View style={styles.gradient}>
+                 <Text style={styles.cardGrayText}>MAT201</Text>
+                 <Text style={styles.cardBlueText}>Programming</Text>
+                 <Text style={styles.lessonred}>Dr.Alex</Text> 
+              </View>
+             </View>
+        </View>
+        </ScrollView>
+
+        <View style={styles.headingRec}>
+            <Text style={styles.headingRecText}> Past Courses</Text>
+            </View>
+        <ScrollView
+      horizontal
+      style={{ flex: 1 }}
+      contentContainerStyle={{ paddingHorizontal: 20 }}
+    >
+        <View style={styles.bottomcardContainer}>
+
+              <View style={styles.courseCardRed}>
+                <Text style={styles.cardGrayText}>MAT202</Text>
+                <Text style={styles.cardBlueText}>Mathamtics</Text> 
+                <Text style={styles.lessonred}>Dr.Alex</Text>       
+              </View>
+      
+            
+              <View style={styles.courseCardGreen}>
+              <Text style={styles.cardGrayText}>MAT202</Text>
+              <Text style={styles.cardBlueText}>Programming</Text>
+              <Text style={styles.lessonred}>Dr.Alex</Text> 
+              </View>
+              
+              <View style={styles.courseCardBlue}>
+              <View style={styles.gradient}>
+                 <Text style={styles.cardGrayText}>MAT201</Text>
+                 <Text style={styles.cardBlueText}>Programming</Text>
+                 <Text style={styles.lessonred}>Dr.Alex</Text> 
+              </View>
+             </View>
+        </View>
+        </ScrollView>
+        </ScrollView>
 
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
@@ -186,6 +256,131 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom:80
   },
+
+  heading: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    marginTop: 10,
+    marginLeft: 10,
+    padding: 20,
+    color: '#223F76'
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    marginTop: 20,
+  },
+  bottomcardContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    marginTop: 20,
+    marginBottom:60
+  },
+  
+  courseCardRed: {
+    width: 114, 
+    height: 183,
+    borderRadius: 4,
+    backgroundColor: '#FFE6E6',
+    shadowColor: 'rgba(0, 0, 0, 0.08)',
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 4,
+    marginRight:10,
+    alignItems: 'left',
+    padding:4,
+  },
+  
+  courseCardGreen: {
+    width: 114, 
+    height: 183,
+    borderRadius: 4,
+    backgroundColor: '#E6FFEF',
+    shadowColor: 'rgba(0, 0, 0, 0.08)',
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 4,
+    marginRight:10,
+    alignItems: 'left',
+    padding:4,
+  },
+
+  courseCardBlue: {
+    width: 114, 
+    height: 183,
+    borderRadius: 4,
+    backgroundColor: '#E0EBFF',
+    shadowColor: 'rgba(0, 0, 0, 0.08)',
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 4,
+    marginRight:10,
+    alignItems: 'left',
+    padding:4,
+    marginBottom:40
+    
+  },
+
+  gradient:{
+    flex: 1,
+    width: '100%',
+    backgroundImage: 'linear-gradient(to bottom, #ff0000, #0000ff)',
+  },
+  cardGrayText: {
+    fontSize: 15,
+    textAlign: 'left',
+    marginLeft:'10%',
+    marginTop:'90%',
+    marginBottom:7,
+    color: '#595959',
+    
+  },
+  cardBlueText: {
+    fontSize: 13,
+    textAlign: 'left',
+    color: '#223F76',
+    marginLeft:'10%',
+    fontWeight: 'bold',
+    marginBottom:5
+  },
+  lessonred: {
+    fontSize: 9,
+    textAlign: 'left',
+    marginLeft:'10%',
+    marginTop:2,
+    color: '#C8272E'
+  },
+
+  headingRec:{
+    
+    flexShrink: 0,
+    height: 37,
+    backgroundColor: '#E8E8E8',
+    paddingTop:5,
+    paddingBottom:2,
+    paddingHorizontal:15,
+    width: 375,
+    borderRadius:4,
+    marginTop:20,
+    marginHorizontal:10,
+    marginBottom:10,
+    shadowColor: 'rgba(0, 0, 0, 0.08)',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+},
+headingRecText: {
+  fontSize: 20,
+  fontWeight: 'bold',
+  textAlign: 'left',
+  color: '#C8272E',
+ 
+},
+
  
 
 })
