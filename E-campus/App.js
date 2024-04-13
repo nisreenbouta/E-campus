@@ -13,7 +13,7 @@ import Department from './screens/department';
 import Notifications from './screens/notifications'; 
 import Messages from './screens/messages'; 
 import CourseDetails from './screens/CourseDetails'; 
-
+import LecturerProfile from './screens/LecturerProfile'; 
 
 const Stack = createStackNavigator();
 
@@ -33,6 +33,7 @@ const App = () => {
         <Stack.Screen name="Notifications" component={Notifications} />
         <Stack.Screen name="Messages" component={Messages} />
         <Stack.Screen name="CourseDetails" component={CourseDetails} />
+        <Stack.Screen name="LecturerProfile" component={LecturerProfile} />
 
       </Stack.Navigator>
     </NavigationContainer>
