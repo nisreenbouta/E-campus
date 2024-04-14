@@ -25,7 +25,9 @@ const Requests = () => {
   const handleBottomNavBar = (screenName) => {
     navigation.navigate(screenName);
   };
-
+  const goToLecturerProfile = () => {
+    navigation.navigate('LecturerProfile');
+  };
   
   return (
    
@@ -65,10 +67,250 @@ const Requests = () => {
       </TouchableOpacity>
         </View>
       )}
-
-
-
-
+  <ScrollView>
+    <Text style={styles.heading}>Requests</Text>
+        <View style={styles.tableHeader}>
+              <Text style={styles.headerTitle}>Active Requests</Text>
+              <View style={styles.whiteFilterButton}>
+                <Text style={styles.whiteFilterButtonText}>Filter</Text>
+                <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
+              </View>
+        </View>
+             <View style={styles.card}>
+                <View style={styles.courseCardRed}>
+                    <View style={styles.headerCardRed}>
+                        <Text style={styles.headerCardTitle}>Reciver</Text>
+                    </View>
+                    <ScrollView>
+                        <View style={styles.smallCardRed}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
+                         </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.courseCardGreen}>
+                    <View style={styles.headerCardGreen}>
+                       <Text style={styles.headerCardTitle}>Request Type</Text>
+                    </View>
+                    <ScrollView>
+                        <View style={styles.smallCardGreen}>
+                            <Text style={styles.smallCardTextGreen}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen}>
+                            <Text style={styles.smallCardTextGreen}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen}>
+                            <Text style={styles.smallCardTextGreen}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen}>
+                            <Text style={styles.smallCardTextGreen}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen}>
+                            <Text style={styles.smallCardTextGreen}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen}>
+                            <Text style={styles.smallCardTextGreen}>Internship</Text>
+                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.courseCardBlue}>
+                   <View style={styles.headerCardBlue}>
+                       <Text style={styles.headerCardTitle}>Action</Text>
+                   </View>
+                   <ScrollView>
+                        <View style={styles.smallCardBlue}>
+                            <View style={styles.smallCardWhite}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>    
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue}>
+                            <View style={styles.smallCardWhite}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue}>
+                        <View style={styles.smallCardWhite}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue}>
+                        <View style={styles.smallCardWhite}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue}>
+                        <View style={styles.smallCardWhite}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue}>
+                        <View style={styles.smallCardWhite}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </View>
+             </View>
+        <View style={styles.tableHeader}>
+              <Text style={styles.headerTitle2}>Past Requests</Text>
+              <View style={styles.whiteFilterButton}>
+                <Text style={styles.whiteFilterButtonText}>Filter</Text>
+                <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
+              </View>
+        </View>
+             <View style={styles.card2}>
+             <View style={styles.courseCardRed2}>
+                    <View style={styles.headerCardRed2}>
+                        <Text style={styles.headerCardTitle2}>Reciver</Text>
+                    </View>
+                    <ScrollView>
+                        <View style={styles.smallCardRed2}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
+                         </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed2}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed2}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed2}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed2}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.smallCardRed2}>
+                        <TouchableOpacity onPress={goToLecturerProfile}>
+                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.courseCardGreen2}>
+                    <View style={styles.headerCardGreen2}>
+                       <Text style={styles.headerCardTitle2}>Request Type</Text>
+                    </View>
+                    <ScrollView>
+                        <View style={styles.smallCardGreen2}>
+                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen2}>
+                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen2}>
+                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen2}>
+                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen2}>
+                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardGreen2}>
+                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
+                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.courseCardYellow2}>
+                    <View style={styles.headerCardYellow2}>
+                       <Text style={styles.headerCardTitle2}>Request Type</Text>
+                    </View>
+                    <ScrollView>
+                        <View style={styles.smallCardYellow2}>
+                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardYellow2}>
+                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardYellow2}>
+                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardYellow2}>
+                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardYellow2}>
+                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
+                        </View>
+                        <View style={styles.smallCardYellow2}>
+                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
+                        </View>
+                    </ScrollView>
+                </View>
+                <View style={styles.courseCardBlue2}>
+                   <View style={styles.headerCardBlue2}>
+                       <Text style={styles.headerCardTitle2}>Action</Text>
+                   </View>
+                   <ScrollView>
+                        <View style={styles.smallCardBlue2}>
+                            <View style={styles.smallCardWhite2}>
+                                <Text style={styles.smallCardTextBlue2}>Show</Text>    
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue2}>
+                            <View style={styles.smallCardWhite2}>
+                                <Text style={styles.smallCardTextBlue2}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue2}>
+                        <View style={styles.smallCardWhite2}>
+                                <Text style={styles.smallCardTextBlue2}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue2}>
+                        <View style={styles.smallCardWhite2}>
+                                <Text style={styles.smallCardTextBlue2}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue2}>
+                        <View style={styles.smallCardWhite2}>
+                                <Text style={styles.smallCardTextBlue}>Show</Text>
+                            </View>
+                        </View>
+                        <View style={styles.smallCardBlue2}>
+                        <View style={styles.smallCardWhite2}>
+                                <Text style={styles.smallCardTextBlue2}>Show</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
+                    </View>
+             </View>
+  </ScrollView>
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
       </TouchableOpacity>
@@ -175,7 +417,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 20,
     right: 20,
-    
     backgroundColor: '#223F76', 
     borderRadius: 30,
     width: 60,
@@ -189,8 +430,457 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom:80
   },
+  heading: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    marginTop: 10,
+    marginLeft: 10,
+    padding: 20,
+    color: '#223F76'
+  },
 
+  tableHeader:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 360,
+    height: 37,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: 'rgba(245, 245, 245, 0.32)',
+    backgroundColor: 'rgba(210, 210, 210, 0.20)',
+    marginLeft:16,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    
+  },
   
+  headerTitle: {
+    fontSize: 15,
+    textAlign: 'center',
+    marginLeft:'35%',
+    marginRight:30,
+    marginTop:2,
+    color: '#223F76',
+    fontWeight: 'bold',
+  },
+  headerTitle2: {
+    fontSize: 15,
+    textAlign: 'center',
+    marginLeft:'35%',
+    marginRight:42,
+    marginTop:2,
+    color: '#223F76',
+    fontWeight: 'bold',
+  },
+  whiteFilterButton:{
+    flexDirection: 'row',
+    width: 77,
+    height: 19,
+    borderRadius: 4,
+    backgroundColor: '#ffffff', 
+    padding:2,
+    alignItems: 'center',
+  },
+  whiteFilterButtonText: {
+    fontSize: 10,
+    textAlign: 'center',
+    marginLeft:15,
+    marginRight:3,
+    color: '#C8272E'
+  },
+  card: {
+    width: 360,
+    height: 322,
+    backgroundColor: 'rgba(245, 245, 245, 0.1)',
+    borderRadius: 4,
+    marginLeft: 16,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    marginBottom:'5%',
+    paddingVertical:15,
+    flexDirection:'row'
+  },
+  card2: {
+    width: 360,
+    height: 322,
+    backgroundColor: 'rgba(245, 245, 245, 0.1)',
+    borderRadius: 4,
+    marginLeft: 16,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    marginBottom:'40%',
+    paddingVertical:15,
+    flexDirection:'row'
+  },
+  courseCardRed: {
+    width: 108, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#FFE6E6',
+    marginRight:10,
+    marginLeft:10,
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+  },
+  headerCardRed: {
+    width: 105, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#E88287',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  smallCardRed: {
+    width: 95, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#E88287',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:5,
+    marginTop:7,
+  },
+  smallCardTextRed: {
+    color: '#ffffff',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
+  smallCardGreen: {
+    width: 100, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#E88287',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:7,
+    marginTop:7,
+  },
+  courseCardGreen: {
+    width: 122, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#E6FFEF',
+    marginRight:10,
+    alignItems: 'left',
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+  },
+  headerCardGreen: {
+    width: 123, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#9DF6BB',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  smallCardGreen: {
+    width: 108, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#9DF6BB',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:7,
+    marginTop:7,
+  },
+  smallCardTextGreen: {
+    color: '#223F76',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
+  courseCardBlue: {
+    width: 87, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#E0EBFF',
+    elevation: 4,
+    marginRight:10,
+    alignItems: 'left',
+    marginBottom:40,
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+  },
+  headerCardBlue: {
+    width: 88, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#87A4DA',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  headerCardTitle: {
+    color: '#FFF',
+    textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
+    fontSize: 12,
+    fontStyle: 'normal',
+    fontWeight: '400',
+  },
+  smallCardBlue: {
+    width: 74, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#87A4DA',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:7,
+    marginTop:7,
+  },
+  smallCardWhite: {
+    width: 56, 
+    height: 20,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+    alignItems:'center',
+    marginTop:2,
+  },
+  smallCardTextBlue: {
+    color: '#C8272E',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
+ 
+  courseCardRed2: {
+    width: 97, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#FFE6E6',
+    marginRight:10,
+    marginLeft:10,
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+  },
+  headerCardRed2: {
+    width: 97, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#E88287',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  smallCardRed2: {
+    width: 85, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#E88287',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:5,
+    marginTop:7,
+  },
+  smallCardTextRed2: {
+    color: '#ffffff',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
+  smallCardGreen2: {
+    width: 78, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#9DF6BB',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:7,
+    marginTop:7,
+  },
+  courseCardGreen2: {
+    width: 90, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#E6FFEF',
+    marginRight:10,
+    alignItems: 'left',
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+  },
+  headerCardGreen2: {
+    width: 90, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#9DF6BB',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  
+  smallCardTextGreen2: {
+    color: '#223F76',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
+  smallCardYellow2: {
+    width: 78, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#F4FBA3;',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:7,
+    marginTop:7,
+  },
+  courseCardYellow2: {
+    width: 90, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#FDFFE0',
+    marginRight:10,
+    alignItems: 'left',
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+  },
+  headerCardYellow2: {
+    width: 90, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#F4FBA3;',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  
+  smallCardTextYellow2: {
+    color: '#595959',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
+  courseCardBlue2: {
+    width: 76, 
+    height: 253,
+    borderRadius: 4,
+    backgroundColor: '#E0EBFF',
+    elevation: 4,
+    marginRight:10,
+    alignItems: 'left',
+    marginBottom:40,
+    shadowColor: 'rgba(0, 0, 0, 0.06)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+  },
+  headerCardBlue2: {
+    width: 76, 
+    height: 27,
+    borderRadius: 4,
+    backgroundColor: '#87A4DA',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center'
+  },
+  headerCardTitle2: {
+    color: '#FFF',
+    textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.25)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
+    fontSize: 12,
+    fontStyle: 'normal',
+    fontWeight: '400',
+  },
+  smallCardBlue2: {
+    width: 65, 
+    height: 35,
+    borderRadius: 4,
+    backgroundColor: '#87A4DA',
+    alignItems: 'left',
+    padding:4,
+    borderWidth: 2, 
+    borderColor:'#E8E8E8',
+    alignItems:'center',
+    marginLeft:7,
+    marginTop:7,
+  },
+  smallCardWhite2: {
+    width: 50, 
+    height: 20,
+    borderRadius: 4,
+    backgroundColor: '#ffffff',
+    alignItems:'center',
+    marginTop:2,
+  },
+  smallCardTextBlue2: {
+    color: '#C8272E',
+    textAlign: 'center',
+    fontSize: 10,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    margin:5,
+  },
 })
 
 export default Requests; 
