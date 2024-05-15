@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const Requests = () => {
+const RequestsLecturer = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -68,12 +68,7 @@ const Requests = () => {
         </View>
       )}
   <ScrollView>
-    <View style={styles.row}>
-        <Text style={styles.heading}>Requests</Text> 
-          <View style={styles.buttonRequest}>
-                  <Text style={styles.buttonRequestText}>Send Request</Text>
-            </View>
-        </View>   
+    <Text style={styles.heading}>Requests</Text>
         <View style={styles.tableHeader}>
               <Text style={styles.headerTitle}>Active Requests</Text>
               <View style={styles.whiteFilterButton}>
@@ -189,9 +184,8 @@ const Requests = () => {
                 <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
               </View>
         </View>
-        
-          <View style={styles.card2}>
-          <ScrollView horizontal={true}>
+             <View style={styles.card2}>
+             <ScrollView horizontal={true}>
              <View style={styles.courseCardRed2}>
                     <View style={styles.headerCardRed2}>
                         <Text style={styles.headerCardTitle2}>Reciver</Text>
@@ -316,9 +310,8 @@ const Requests = () => {
                         </View>
                     </ScrollView>
                     </View>
-               </ScrollView>
+                    </ScrollView>
              </View>
-             
   </ScrollView>
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
@@ -445,7 +438,6 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginTop: 10,
     marginLeft: 10,
-    marginRight:20,
     padding: 20,
     color: '#223F76'
   },
@@ -891,31 +883,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     margin:5,
   },
-  row:{
-    flexDirection:'row'
-  },
-  buttonRequest: {
-    width: 95, 
-    height: 35,
-    borderRadius: 4,
-    backgroundColor: '#E88287',
-    padding:3,
-    borderWidth: 2, 
-    borderColor:'#E8E8E8',
-    alignItems:'center',
-    marginLeft:'25%',
-    marginTop:30,
-  },
-  buttonRequestText: {
-    color: '#ffffff',
-    textAlign: 'center',
-    fontSize: 10,
-    fontStyle: 'normal',
-    fontWeight: '600',
-    margin:5,
-  },
 })
 
-export default Requests; 
+export default RequestsLecturer; 
 
 

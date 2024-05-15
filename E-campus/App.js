@@ -14,7 +14,20 @@ import Notifications from './screens/notifications';
 import Messages from './screens/messages'; 
 import CourseDetails from './screens/CourseDetails'; 
 import LecturerProfile from './screens/LecturerProfile'; 
+import HomeLecturer from './screens/Lecturer/homeLecturer';
+import ProfileLecturer from './screens/Lecturer/profileLecturer';
+import RequestsLecturer from './screens/Lecturer/requestsLecturer';
+import CoursesLecturer from './screens/Lecturer/coursesLecturer';
+import CourseDetailsLecturer from './screens/Lecturer/courseDetailsLecturer';
+import SPSingleGroupLecturer from './screens/Lecturer/SPSingleGroupLecturer';
+import DepartmentLecturer from './screens/Lecturer/departmentLecturer';
+import MessagesLecturer from './screens/Lecturer/messagesLecturer';
+import NotificationsLecturer from './screens/Lecturer/notificationsLecturer';
+import SPgroupsLecturer from './screens/Lecturer/SPgroupsLecturer';
+import Drawer from './shared/drawer'; 
 
+
+import MyLayout from './layout/myLayout'; 
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -22,7 +35,7 @@ const App = () => {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="E-campus">
         <Stack.Screen name="E-campus" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={STDProfile} />
@@ -35,6 +48,18 @@ const App = () => {
         <Stack.Screen name="CourseDetails" component={CourseDetails} />
         <Stack.Screen name="LecturerProfile" component={LecturerProfile} />
 
+        <Stack.Screen name="Drawer" component={Drawer} />
+
+        <Stack.Screen name="HomeLecturer" component={HomeLecturer} />
+        <Stack.Screen name="ProfileLecturer" component={ProfileLecturer} />
+        <Stack.Screen name="RequestsLecturer" component={RequestsLecturer} />
+        <Stack.Screen name="CoursesLecturer" component={CoursesLecturer} />
+        <Stack.Screen name="CourseDetailsLecturer" component={CourseDetailsLecturer} />
+        <Stack.Screen name="SPgroupsLecturer" component={SPgroupsLecturer} />
+        <Stack.Screen name="SPSingleGroupLecturer" component={SPSingleGroupLecturer} />
+        <Stack.Screen name="DepartmentLecturer" component={DepartmentLecturer} />
+        <Stack.Screen name="MessagesLecturer" component={MessagesLecturer} />
+        <Stack.Screen name="NotificationsLecturer" component={NotificationsLecturer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -43,6 +68,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: 'relative'
+
   },
   navBar: {
     flexDirection: 'row',

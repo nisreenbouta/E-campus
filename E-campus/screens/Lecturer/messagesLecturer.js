@@ -6,9 +6,9 @@ import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
-import styles from '../shared/styles'
+import styles from '../../shared/styles'
 
-const Messages = () => {
+const MessagesLecturer = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -83,7 +83,7 @@ const Messages = () => {
           <ScrollView>
               <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                       <View style={styles.textContainerTable}>
@@ -99,7 +99,7 @@ const Messages = () => {
                 </View>
                 <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                       <View style={styles.textContainerTable}>
@@ -115,7 +115,7 @@ const Messages = () => {
                 </View>
                 <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                      <View style={styles.textContainerTable}>
@@ -131,7 +131,7 @@ const Messages = () => {
                 </View>
                 <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                       <View style={styles.textContainerTable}>
@@ -168,6 +168,6 @@ const Messages = () => {
 
 
 
-export default Messages; 
+export default MessagesLecturer; 
 
 

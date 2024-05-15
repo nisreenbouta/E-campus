@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    //implement your authentication logic
-    console.log('Username:', username);
-    console.log('Password:', password);
-    //clear the input fields after logging in
+    if (username === 'std' && password === 'p') {
+      navigation.navigate('Home'); // Navigate to student screen
+    } else if (username === 'lec' && password === 'p') {
+      navigation.navigate('HomeLecturer'); // Navigate to lecturer screen
+    } else {
+      console.log('Invalid credentials');
+    }
+
+    // Clear the input fields after logging in
     setUsername('');
     setPassword('');
-
-    navigation.navigate('Home');
   };
 
   return (
@@ -21,39 +24,36 @@ const Login = ({navigation}) => {
       source={require('../assets/login_background.jpg')}
       style={styles.backgroundImage}
     >
-   
-    <View style={styles.container}>
-      <Image source={require('../assets/kbu_logo.png')}
-      style={styles.logo}
-      />
-    
-      <Text style={styles.title}>Welcome to E-campus!</Text>
-      <Text style={styles.subtitle}>Log in to continue</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={setPassword}
-      />
-      <Text style={styles.subsubtitle}>Forgot your passowrd?</Text>
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={styles.container}>
+        <Image source={require('../assets/kbu_logo.png')} style={styles.logo} />
+
+        <Text style={styles.title}>Welcome to E-campus!</Text>
+        <Text style={styles.subtitle}>Log in to continue</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          value={username}
+          onChangeText={setUsername}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Text style={styles.subsubtitle}>Forgot your password?</Text>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        
+      </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-   
     justifyContent: 'center',
     alignItems: 'center',
     width: 360,
@@ -64,23 +64,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom:10,
-    color: '#223F76'
+    marginBottom: 10,
+    color: '#223F76',
   },
   subtitle: {
     fontSize: 17,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom:20,
-    color: '#C8272E'
+    marginBottom: 20,
+    color: '#C8272E',
   },
   subsubtitle: {
     fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom:20,
+    marginBottom: 20,
     color: '#223F76',
-   
   },
   input: {
     width: '80%',
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
     borderColor: '#FFFFFF',
     borderWidth: 1,
     borderRadius: 3,
-    backgroundColor:'#FFFFFF',
+    backgroundColor: '#FFFFFF',
     marginBottom: 20,
     paddingHorizontal: 10,
   },
@@ -96,25 +95,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#C8272E',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    width:148,
+    width: 148,
     borderRadius: 5,
   },
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
-    textAlign: 'center'
+    textAlign: 'center',
   },
-   backgroundImage: {
+  backgroundImage: {
     flex: 1,
-    resizeMode: 'cover', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
     width: 90,
     height: 70,
-    marginBottom:27
+    marginBottom: 27,
   },
 });
 

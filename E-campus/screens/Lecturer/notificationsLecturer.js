@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { EvilIcons } from '@expo/vector-icons';
-import styles from '../shared/styles'
+import styles from '../../shared/styles';
 
-const Messages = () => {
+const NotificationsLecturer = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -64,26 +62,25 @@ const Messages = () => {
         <Text style={styles.buttonText}>Log Out</Text>
       </TouchableOpacity>
         </View>
-      )}
-      <Text style={styles.heading}>Messages</Text>
-          <View style={styles.tableHeader}>
-              <View style={styles.searchBar}>
-                        <Text style={styles.searchText}>Search</Text>
-                        <EvilIcons name="search" size={15} color="gray" />
-                    </View>
-              <View style={styles.whiteFilterButton}>
-                  <Text style={styles.whiteFilterButtonText}>Sort By</Text>
-                  <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
-              </View>
-              <View style={styles.whiteFilterButton}>
-                  <Text style={styles.whiteFilterButtonText}>Lecturers</Text>
-                  <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
-              </View>
-          </View>
-          <ScrollView>
+      )}  
+      <Text style={styles.heading}>Notifications</Text>
+        <View style={styles.tableHeaderNotification}>
+                <View style={styles.whiteFilterButtonNotification}>
+                    <Text style={styles.whiteFilterButtonTextNotification}>Filter</Text>
+                    <MaterialCommunityIcons name="filter-menu" size={15} color="#C8272E" />
+                </View>
+                <View style={styles.whiteFilterButtonNotification}>
+                    <Text style={styles.whiteFilterButtonTextNotification}>Show All</Text>
+                </View>
+                <View style={styles.whiteFilterButtonNotification}>
+                    <Text style={styles.whiteFilterButtonTextNotification}>Unread</Text>
+                </View>
+        </View>
+
+        <ScrollView>
               <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                       <View style={styles.textContainerTable}>
@@ -93,13 +90,13 @@ const Messages = () => {
                       
                       <View style={styles.textContainerTable}>
                           <View style={styles.cardIconTable}>
-                          <Text style={styles.tableCardDate}>11/11/2020</Text>
-                              </View>
+                              <Text style={styles.notificationTime}>10h</Text>
+                          </View>
                       </View>
                 </View>
                 <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                       <View style={styles.textContainerTable}>
@@ -109,13 +106,13 @@ const Messages = () => {
                       
                       <View style={styles.textContainerTable}>
                           <View style={styles.cardIconTable}>
-                          <Text style={styles.tableCardDate}>11/11/2020</Text>
+                          <Text style={styles.notificationTime}>10h</Text>
                               </View>
                       </View>
                 </View>
                 <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                      <View style={styles.textContainerTable}>
@@ -125,13 +122,13 @@ const Messages = () => {
                       
                       <View style={styles.textContainerTable}>
                           <View style={styles.cardIconTable}>
-                          <Text style={styles.tableCardDate}>11/11/2020</Text>
+                          <Text style={styles.notificationTime}>10h</Text>
                               </View>
                       </View>
                 </View>
                 <View style={styles.smallcard}>
                     <Image
-                        source={require('../assets/profile-user.png')}
+                        source={require('../../assets/profile-user.png')}
                         style={styles.ProfilePicIcon}  
                       />
                       <View style={styles.textContainerTable}>
@@ -141,11 +138,12 @@ const Messages = () => {
                       
                       <View style={styles.textContainerTable}>
                           <View style={styles.cardIconTable}>
-                          <Text style={styles.tableCardDate}>11/11/2020</Text>
+                          <Text style={styles.notificationTime}>10h</Text>
                               </View>
                       </View>
                 </View>
           </ScrollView>
+
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
       </TouchableOpacity>
@@ -168,6 +166,6 @@ const Messages = () => {
 
 
 
-export default Messages; 
+export default NotificationsLecturer; 
 
 

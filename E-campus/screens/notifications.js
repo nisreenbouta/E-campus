@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import styles from '../shared/styles';
 
 const Notifications = () => {
     const navigation = useNavigation();
@@ -63,7 +62,87 @@ const Notifications = () => {
         <Text style={styles.buttonText}>Log Out</Text>
       </TouchableOpacity>
         </View>
-      )}
+      )}  
+      <Text style={styles.heading}>Notifications</Text>
+        <View style={styles.tableHeaderNotification}>
+                <View style={styles.whiteFilterButtonNotification}>
+                    <Text style={styles.whiteFilterButtonTextNotification}>Filter</Text>
+                    <MaterialCommunityIcons name="filter-menu" size={15} color="#C8272E" />
+                </View>
+                <View style={styles.whiteFilterButtonNotification}>
+                    <Text style={styles.whiteFilterButtonTextNotification}>Show All</Text>
+                </View>
+                <View style={styles.whiteFilterButtonNotification}>
+                    <Text style={styles.whiteFilterButtonTextNotification}>Unread</Text>
+                </View>
+        </View>
+
+        <ScrollView>
+              <View style={styles.smallcard}>
+                    <Image
+                        source={require('../assets/profile-user.png')}
+                        style={styles.ProfilePicIcon}  
+                      />
+                      <View style={styles.textContainerTable}>
+                          <Text style={styles.tableCardHeading}>Sender Name</Text>
+                          <Text style={styles.tableCardMsgPreview}>Message Text preview...</Text>
+                      </View>
+                      
+                      <View style={styles.textContainerTable}>
+                          <View style={styles.cardIconTable}>
+                              <Text style={styles.notificationTime}>10h</Text>
+                          </View>
+                      </View>
+                </View>
+                <View style={styles.smallcard}>
+                    <Image
+                        source={require('../assets/profile-user.png')}
+                        style={styles.ProfilePicIcon}  
+                      />
+                      <View style={styles.textContainerTable}>
+                          <Text style={styles.tableCardHeading}>Sender Name</Text>
+                          <Text style={styles.tableCardMsgPreview}>Message Text preview...</Text>
+                      </View>
+                      
+                      <View style={styles.textContainerTable}>
+                          <View style={styles.cardIconTable}>
+                          <Text style={styles.notificationTime}>10h</Text>
+                              </View>
+                      </View>
+                </View>
+                <View style={styles.smallcard}>
+                    <Image
+                        source={require('../assets/profile-user.png')}
+                        style={styles.ProfilePicIcon}  
+                      />
+                     <View style={styles.textContainerTable}>
+                          <Text style={styles.tableCardHeading}>Sender Name</Text>
+                          <Text style={styles.tableCardMsgPreview}>Message Text preview...</Text>
+                      </View>
+                      
+                      <View style={styles.textContainerTable}>
+                          <View style={styles.cardIconTable}>
+                          <Text style={styles.notificationTime}>10h</Text>
+                              </View>
+                      </View>
+                </View>
+                <View style={styles.smallcard}>
+                    <Image
+                        source={require('../assets/profile-user.png')}
+                        style={styles.ProfilePicIcon}  
+                      />
+                      <View style={styles.textContainerTable}>
+                          <Text style={styles.tableCardHeading}>Sender Name</Text>
+                          <Text style={styles.tableCardMsgPreview}>Message Text preview...</Text>
+                      </View>
+                      
+                      <View style={styles.textContainerTable}>
+                          <View style={styles.cardIconTable}>
+                          <Text style={styles.notificationTime}>10h</Text>
+                              </View>
+                      </View>
+                </View>
+          </ScrollView>
 
 <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
@@ -86,108 +165,6 @@ const Notifications = () => {
 };
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      position: 'relative',
-    },
-    
- navBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 50,
-    backgroundColor: '#223F76',
-    paddingHorizontal: 10,
-    zIndex: 100,
-  },
-  menuButton: {
-    marginRight: 102,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#FFFFFF'
-  },
-
-  drawer: {
-    position: 'absolute',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  right: 0,
-  backgroundColor: '#223F76',
-  padding: 50,
-  zIndex: 99,
-  },
-  drawerContent: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#FFFFFF',
-    marginBottom:10,
-    marginTop:30
-  },
-  button: {
-    backgroundColor: '#C8272E',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    width:148,
-    borderRadius: 5,
-    marginLeft:'25%',
-    marginTop:74
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
-    textAlign: 'center'
-  },
-  
-  bottomNavBar:{
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 80,
-    backgroundColor: '#223F76',
-    paddingLeft:10,
-    paddingRight:60,
-    paddingBottom:20,
-    
-   },
-   
-   bottomNavBarContent:{
-   
-    textAlign: 'center',
-    color: '#FFFFFF',
-    marginHorizontal:'16%'
-   },
-   
-
-  chatpot: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    
-    backgroundColor: '#223F76', 
-    borderRadius: 30,
-    width: 60,
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOpacity: 0.5,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 2,
-    elevation: 3,
-    marginBottom:80
-  },
- 
-
-})
 
 export default Notifications; 
 
