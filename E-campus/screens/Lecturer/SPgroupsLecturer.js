@@ -35,10 +35,10 @@ const goToSPgroup = () => {
   return (
     <View style={styles.container}>
       
-      <Drawer
+    <Drawer
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}/>
-{!isDrawerOpen && (
+    {!isDrawerOpen && (
     <View style={styles.mainContent}>
       <ScrollView> 
         <Text style={styles.heading}>Senior Project Group</Text>

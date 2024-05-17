@@ -9,6 +9,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import  Drawer from '../../shared/drawer';
+import  BottomNavBar from '../../shared/bottomNavbar';
 
 const DepartmentLecturer = () => {
     const navigation = useNavigation();
@@ -75,192 +77,163 @@ const DepartmentLecturer = () => {
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
-  return (
-   
-   
-    <View style={styles.container}>
+  return (  
+<View style={styles.container}>
+      <Drawer
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}/>
       
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
-
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Courses')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroups')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Department')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
-<ScrollView>
-  <FlatList
-        ref={flatListRef}
-        data={images}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderItem}
-        onViewableItemsChanged={onViewableItemsChanged.current}
-      />
-      <Text style={styles.maintext}>Computer Engineering</Text>
-      <View style={styles.secondNavBar}>
-        <View style={styles.secondNavBarIcon}>
-            <FontAwesome name="graduation-cap" size={20} color="white" />
-            <Text style={styles.secondNavBarText}>Instructors</Text>
-        </View>
-        <View style={styles.secondNavBarIcon}>
-            <Ionicons name="briefcase-sharp" size={20} color="white" />
-            <Text style={styles.secondNavBarText}>Secretary</Text>
-        </View>
-        <View style={styles.secondNavBarIcon}>
-           <MaterialIcons name="menu-book" size={20} color="white" />
-           <Text style={styles.secondNavBarText}>Courses</Text>
-        </View>
-        <View style={styles.secondNavBarIcon}>
-           <Entypo name="plus" size={20} color="white" />
-           <Text style={styles.secondNavBarText}>Erasmus</Text>
-        </View>
-        <View style={styles.secondNavBarIcon}> 
-           <FontAwesome5 name="id-card-alt" size={20} color="white" />
-           <Text style={styles.secondNavBarText}>Internship</Text>
-      </View>
-      <View style={styles.secondNavBarIcon}> 
-          <AntDesign name="solution1" size={20} color="white" />
-          <Text style={styles.secondNavBarText}>Workplace Training</Text>
-      </View>
-      </View>
-      <Text style={styles.heading}>Instructors</Text>
-      <View style={styles.lecturerCard}> 
-            <Image
-                  source={require('../../assets/profile-user.png')}
-                  style={styles.avatar}
-                    />
-            <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-            <Text style={styles.lecturerPosition}>Head of the department</Text>  
-      </View>
-      <View style={styles.lecturersContainer}> 
-          <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/profile-user.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-              <Text style={styles.lecturerPosition}>Head of the department</Text>  
+  {!isDrawerOpen && (
+   <View style={styles.mainContent}>
+      
+    <ScrollView>
+      <FlatList
+            ref={flatListRef}
+            data={images}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={renderItem}
+            onViewableItemsChanged={onViewableItemsChanged.current}
+          />
+          <Text style={styles.maintext}>Computer Engineering</Text>
+          <View style={styles.secondNavBar}>
+            <View style={styles.secondNavBarIcon}>
+                <FontAwesome name="graduation-cap" size={20} color="white" />
+                <Text style={styles.secondNavBarText}>Instructors</Text>
+            </View>
+            <View style={styles.secondNavBarIcon}>
+                <Ionicons name="briefcase-sharp" size={20} color="white" />
+                <Text style={styles.secondNavBarText}>Secretary</Text>
+            </View>
+            <View style={styles.secondNavBarIcon}>
+              <MaterialIcons name="menu-book" size={20} color="white" />
+              <Text style={styles.secondNavBarText}>Courses</Text>
+            </View>
+            <View style={styles.secondNavBarIcon}>
+              <Entypo name="plus" size={20} color="white" />
+              <Text style={styles.secondNavBarText}>Erasmus</Text>
+            </View>
+            <View style={styles.secondNavBarIcon}> 
+              <FontAwesome5 name="id-card-alt" size={20} color="white" />
+              <Text style={styles.secondNavBarText}>Internship</Text>
           </View>
-          <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/profile-user.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-              <Text style={styles.lecturerPosition}>Head of the department</Text>  
-          </View>       
-      </View>
-      <View style={styles.lecturersContainer}> 
-          <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/profile-user.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-              <Text style={styles.lecturerPosition}>Head of the department</Text>  
+          <View style={styles.secondNavBarIcon}> 
+              <AntDesign name="solution1" size={20} color="white" />
+              <Text style={styles.secondNavBarText}>Workplace Training</Text>
           </View>
-          <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/profile-user.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-              <Text style={styles.lecturerPosition}>Head of the department</Text>  
-          </View>       
-      </View>
-      <View style={styles.lecturersContainer}> 
-          <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/profile-user.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-              <Text style={styles.lecturerPosition}>Head of the department</Text>  
           </View>
+          <Text style={styles.heading}>Instructors</Text>
           <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/profile-user.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerText}>Prof. ilhami</Text> 
-              <Text style={styles.lecturerPosition}>Head of the department</Text>  
-          </View>       
+                <Image
+                      source={require('../../assets/profile-user.png')}
+                      style={styles.avatar}
+                        />
+                <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                <Text style={styles.lecturerPosition}>Head of the department</Text>  
+          </View>
+          <View style={styles.lecturersContainer}> 
+              <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/profile-user.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                  <Text style={styles.lecturerPosition}>Head of the department</Text>  
+              </View>
+              <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/profile-user.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                  <Text style={styles.lecturerPosition}>Head of the department</Text>  
+              </View>       
+          </View>
+          <View style={styles.lecturersContainer}> 
+              <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/profile-user.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                  <Text style={styles.lecturerPosition}>Head of the department</Text>  
+              </View>
+              <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/profile-user.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                  <Text style={styles.lecturerPosition}>Head of the department</Text>  
+              </View>       
+          </View>
+          <View style={styles.lecturersContainer}> 
+              <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/profile-user.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                  <Text style={styles.lecturerPosition}>Head of the department</Text>  
+              </View>
+              <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/profile-user.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerText}>Prof. ilhami</Text> 
+                  <Text style={styles.lecturerPosition}>Head of the department</Text>  
+              </View>       
+          </View>
+      <View style={styles.backgroundDivider}>
+          <Text style={styles.whiteHeading}>Secretary</Text>
+          <View style={styles.lecturerCard}> 
+                  <Image
+                        source={require('../../assets/avatar-girl.png')}
+                        style={styles.avatar}
+                          />
+                  <Text style={styles.lecturerTextWhite}>Lexa</Text> 
+                  <Text style={styles.lecturerPositionWhite}>Head of the department</Text>  
+              </View>    
       </View>
-  <View style={styles.backgroundDivider}>
-       <Text style={styles.whiteHeading}>Secretary</Text>
-       <View style={styles.lecturerCard}> 
-              <Image
-                    source={require('../../assets/avatar-girl.png')}
-                    style={styles.avatar}
-                      />
-              <Text style={styles.lecturerTextWhite}>Lexa</Text> 
-              <Text style={styles.lecturerPositionWhite}>Head of the department</Text>  
-          </View>    
-  </View>
-  <Text style={styles.heading}>Department Courses</Text>
-  <View style={[styles.rectangleRed, isDropdownOpen && styles.expanded]}>
-        <Text style={styles.Rectangletitle}>First Year</Text>
-        <TouchableOpacity style={styles.dropdownButton} onPress={toggleDropdown}>
-          <Text style={[styles.arrow, isDropdownOpen && styles.arrowUp]}>▼</Text>
-        </TouchableOpacity>
-      {isDropdownOpen && (
-        <View style={styles.dropdownContent}>
-          <View style={styles.smester}>
-            <Text style={styles.semesterHeading}>First</Text>
-             <View style={styles.ClassCardContainer}>
-                <View style={styles.semsterClassCardRed}>
+      <Text style={styles.heading}>Department Courses</Text>
+      <View style={[styles.rectangleRed, isDropdownOpen && styles.expanded]}>
+            <Text style={styles.Rectangletitle}>First Year</Text>
+            <TouchableOpacity style={styles.dropdownButton} onPress={toggleDropdown}>
+              <Text style={[styles.arrow, isDropdownOpen && styles.arrowUp]}>▼</Text>
+            </TouchableOpacity>
+          {isDropdownOpen && (
+            <View style={styles.dropdownContent}>
+              <View style={styles.smester}>
+                <Text style={styles.semesterHeading}>First</Text>
+                <View style={styles.ClassCardContainer}>
+                    <View style={styles.semsterClassCardRed}>
 
+                    </View>
                 </View>
-             </View>
-          </View>
+              </View>
+            </View>
+          )}
         </View>
-      )}
-    </View>
-    <View style={[styles.rectangleGreen, isDropdownOpen && styles.expanded]}>
-        <Text style={styles.Rectangletitle}>Second Year</Text>
-        <TouchableOpacity style={styles.dropdownButton} onPress={toggleDropdown}>
-          <Text style={[styles.arrow, isDropdownOpen && styles.arrowUp]}>▼</Text>
-        </TouchableOpacity>
-      {isDropdownOpen && (
-        <View style={styles.dropdownContent}>
-          <View style={styles.smester}>
-            <Text style={styles.semesterHeading}>First</Text>
-             <View style={styles.ClassCardContainer}>
-                <View style={styles.semsterClassCardRed}>
+        <View style={[styles.rectangleGreen, isDropdownOpen && styles.expanded]}>
+            <Text style={styles.Rectangletitle}>Second Year</Text>
+            <TouchableOpacity style={styles.dropdownButton} onPress={toggleDropdown}>
+              <Text style={[styles.arrow, isDropdownOpen && styles.arrowUp]}>▼</Text>
+            </TouchableOpacity>
+          {isDropdownOpen && (
+            <View style={styles.dropdownContent}>
+              <View style={styles.smester}>
+                <Text style={styles.semesterHeading}>First</Text>
+                <View style={styles.ClassCardContainer}>
+                    <View style={styles.semsterClassCardRed}>
 
+                    </View>
                 </View>
-             </View>
-          </View>
-        </View>
-      )}
+              </View>
+            </View>
+          )}
     </View>
     <View style={[styles.rectangleBlue, isDropdownOpen && styles.expanded]}>
         <Text style={styles.Rectangletitle}>Third Year</Text>
@@ -337,26 +310,23 @@ const DepartmentLecturer = () => {
               <Text style={styles.lecturerPositionWhite}>Workplace training Coordinator</Text>  
           </View>    
   </View>
+  
   </ScrollView>
-     
+ 
+  </View>
+
+)} 
+{!isDrawerOpen && (
 <TouchableOpacity style={styles.chatpot}>
-        <Ionicons name="help-circle-sharp" size={30} color="white" />
-      </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        
-        <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
-    </View>
-    
+  <Ionicons name="help-circle-sharp" size={30} color="white" />
+</TouchableOpacity>
+)} 
+
+
+{!isDrawerOpen && (
+  <BottomNavBar/>
+)} 
+</View>
   );
 };
 
@@ -366,7 +336,13 @@ const styles = StyleSheet.create({
       flex: 1,
       position: 'relative',
     },
-    
+    mainContent: {
+      zIndex: 0,
+      top: 50,
+      bottom: 80,
+      left:0,
+      right:0
+    },
  navBar: {
     flexDirection: 'row',
     alignItems: 'center',

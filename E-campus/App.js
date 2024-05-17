@@ -36,6 +36,9 @@ const App = () => {
     <NavigationContainer>
 
       <Stack.Navigator initialRouteName="E-campus">
+{/* 
+      <Stack.Screen name="MyLayout" component={MyLayout} /> */}
+
         <Stack.Screen name="E-campus" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={STDProfile} />

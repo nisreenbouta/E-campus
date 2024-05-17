@@ -30,31 +30,25 @@ const BottomNavbar = () => {
 
 const styless = StyleSheet.create({
   container: {
-    flex: 1,
-    position: "relative",
-  },
-  bottomNavBar:{
-    position: 'absolute',
-    bottom: 0,
+    backgroundColor: '#223F76',
+    justifyContent: 'space-between',
     left: 0,
     right: 0,
+    bottom: 0,
+    height: '10%'
+  },
+  bottomNavBar:{
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 180,
-    backgroundColor: '#223F76',
+    paddingTop: '3%',
     paddingHorizontal: 20,
-    paddingBottom: 20,
    },
    
    bottomNavBarContent:{
-   
     textAlign: 'center',
     color: '#FFFFFF',
-    marginHorizontal:'16%'
-   },
-  
-  
+   }
 });
 
 export default BottomNavbar;

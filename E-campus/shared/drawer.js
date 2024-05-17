@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-const Drawer = ({isDrawerOpen, setIsDrawerOpen}) => {
+const Drawer = ({isDrawerOpen, setIsDrawerOpen, isLecturer}) => {
   const navigation = useNavigation();
 
   const toggleDrawer = () => {
@@ -15,7 +15,8 @@ const Drawer = ({isDrawerOpen, setIsDrawerOpen}) => {
     navigation.navigate('E-campus');
   };
 
-  const handleDrawerItemPress = (screenName) => {
+  const handleDrawerItemPress = (screenIdentifier) => {
+    const screenName = isLecturer ? `${screenIdentifier}Lecturer` : screenIdentifier;
     navigation.navigate(screenName);
     setIsDrawerOpen(false); // Close the drawer after navigating
   };
@@ -27,16 +28,22 @@ const Drawer = ({isDrawerOpen, setIsDrawerOpen}) => {
         <TouchableOpacity onPress={toggleDrawer} style={styless.menuButton}>
           <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
         </TouchableOpacity>
+        {isLecturer && (
+        <Text style={styless.title}>Lecturer Campus</Text>
+        )}
+        {!isLecturer && (
         <Text style={styless.title}>E-Campus</Text>
+        )}
       </View>
 
        
     {/*  Drawer Content Goes Here */}
     {isDrawerOpen && (
-        <View style={styless.drawer}>
+        <View style={styless.drawer}>         
           <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
             <Text style={styless.drawerContent}>Profile</Text>
           </TouchableOpacity>
+
           <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
             <Text style={styless.drawerContent}>Requests</Text>
           </TouchableOpacity>
@@ -64,36 +71,26 @@ const Drawer = ({isDrawerOpen, setIsDrawerOpen}) => {
 const styless = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-between',
   },
   
   navBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: 50,
+    justifyContent: 'center',
     backgroundColor: '#223F76',
     paddingHorizontal: 10,
-    zIndex: 600,
+    padding: '5%'
   },
   menuButton: {
-    marginRight: 102,
+    position: 'absolute',
+    left: 10
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
     color: '#FFFFFF'
   },
-  // drawer: {
-  //   position:"absolute",
-  //   top: 50,
-  //   left: 0,
-  //   right: 0,
-  //   bottom: 0,
-  //   padding: 50,
-  //   backgroundColor: '#223F76',
-  //   zIndex: 300,
-  //   height: 1000
-  // },
   drawer: {
     position:"absolute",
     top: 50,
@@ -101,8 +98,7 @@ const styless = StyleSheet.create({
     right: 0,
     bottom: 0,
     padding: 50,
-    backgroundColor: '#223F76',
-    zIndex: 100
+    backgroundColor: '#223F76'
   },
   drawerContent: {
     fontSize: 25,
@@ -110,16 +106,15 @@ const styless = StyleSheet.create({
     textAlign: 'left',
     color: '#FFFFFF',
     marginTop:40,
-    zIndex: 500,
+
   },
   button: {
     backgroundColor: 'red',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    width:148,
     borderRadius: 5,
-    marginLeft:'25%',
-    marginTop:74
+    alignSelf: 'center',
+    marginTop: '15%',
   },
   buttonText: {
     color: 'white',

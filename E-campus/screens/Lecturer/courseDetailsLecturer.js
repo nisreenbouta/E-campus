@@ -10,6 +10,10 @@ import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
+import  Drawer from '../../shared/drawer';
+import  BottomNavBar from '../../shared/bottomNavbar';
+
+
 const CourseDetailsLecturer = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -36,42 +40,13 @@ const CourseDetailsLecturer = () => {
   return (
    
    
-    <View style={styles.container}>
-      
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
-
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Courses')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroups')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Department')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
-<ScrollView>
+  <View style={styles.container}>
+     <Drawer
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}/>
+    {!isDrawerOpen && (
+ <View style={styles.mainContent}>
+    <ScrollView>
         <Text style={styles.heading}>PRG209 Programming</Text>
         <Text style={styles.describtion}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -170,22 +145,32 @@ const CourseDetailsLecturer = () => {
               </View>
           </ScrollView>    
           </View>
-          </ScrollView>    
-<TouchableOpacity style={styles.chatpot}>
-        <Ionicons name="help-circle-sharp" size={30} color="white" />
-      </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
+          </ScrollView>
+          </View>
+      )} 
+
+       {!isDrawerOpen && (    
+        <TouchableOpacity style={styles.chatpot}>
+          <Ionicons name="help-circle-sharp" size={30} color="white" />
+        </TouchableOpacity>
+  )} 
+
+        {!isDrawerOpen && (
+        // <View style={styles.bottomNavBar}>
+        //   <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
+        //   <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
+        //   </TouchableOpacity>
+        //   <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
+        //       <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
+        //   </TouchableOpacity> 
+        //     <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
+        //       <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
+        //     </TouchableOpacity> 
+        // </View>
+        <BottomNavBar/>
+     )} 
+
+
     </View>
     
   );
@@ -197,7 +182,13 @@ const styles = StyleSheet.create({
       flex: 1,
       position: 'relative',
     },
-    
+    mainContent: {
+      zIndex: 0,
+      top: 50,
+      bottom: 80,
+      left:0,
+      right:0
+    },
  navBar: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -28,6 +28,18 @@ const Requests = () => {
   const goToLecturerProfile = () => {
     navigation.navigate('LecturerProfile');
   };
+
+  const requestList = [
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship' },
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+    { receiver: 'Prof.Ilhami ORAK', requestType: 'Internship'},
+  ];
   
   return (
    
@@ -87,36 +99,14 @@ const Requests = () => {
                         <Text style={styles.headerCardTitle}>Reciver</Text>
                     </View>
                     <ScrollView>
-                        <View style={styles.smallCardRed}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
-                         </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
+
+                    {requestList.map((item, index) => (
+                              <View key={index} style={styles.smallCardRed}>
+                              <TouchableOpacity onPress={goToLecturerProfile}>
+                                  <Text style={styles.smallCardTextRed}>{item.receiver}</Text>
+                               </TouchableOpacity>
+                              </View>
+                    ))}
                     </ScrollView>
                 </View>
                 <View style={styles.courseCardGreen}>
@@ -124,24 +114,13 @@ const Requests = () => {
                        <Text style={styles.headerCardTitle}>Request Type</Text>
                     </View>
                     <ScrollView>
-                        <View style={styles.smallCardGreen}>
-                            <Text style={styles.smallCardTextGreen}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen}>
-                            <Text style={styles.smallCardTextGreen}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen}>
-                            <Text style={styles.smallCardTextGreen}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen}>
-                            <Text style={styles.smallCardTextGreen}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen}>
-                            <Text style={styles.smallCardTextGreen}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen}>
-                            <Text style={styles.smallCardTextGreen}>Internship</Text>
-                        </View>
+
+                    {requestList.map((item, index) => (
+                              <View key={index+10} style={styles.smallCardGreen}>
+                              <Text style={styles.smallCardTextGreen}>{item.requestType}</Text>
+                              </View>
+
+                    ))}
                     </ScrollView>
                 </View>
                 <View style={styles.courseCardBlue}>
@@ -149,36 +128,14 @@ const Requests = () => {
                        <Text style={styles.headerCardTitle}>Action</Text>
                    </View>
                    <ScrollView>
-                        <View style={styles.smallCardBlue}>
-                            <View style={styles.smallCardWhite}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>    
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue}>
-                            <View style={styles.smallCardWhite}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue}>
-                        <View style={styles.smallCardWhite}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue}>
-                        <View style={styles.smallCardWhite}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue}>
-                        <View style={styles.smallCardWhite}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue}>
-                        <View style={styles.smallCardWhite}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>
-                            </View>
-                        </View>
+
+                   {requestList.map((item, index) => (
+                      <View style={styles.smallCardBlue}>
+                          <View style={styles.smallCardWhite}>
+                              <Text style={styles.smallCardTextBlue}>Show</Text>    
+                          </View>
+                      </View>
+                    ))}
                     </ScrollView>
                 </View>
              </View>
@@ -197,36 +154,15 @@ const Requests = () => {
                         <Text style={styles.headerCardTitle2}>Reciver</Text>
                     </View>
                     <ScrollView>
-                        <View style={styles.smallCardRed2}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
-                         </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed2}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed2}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed2}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed2}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.smallCardRed2}>
-                        <TouchableOpacity onPress={goToLecturerProfile}>
-                            <Text style={styles.smallCardTextRed2}>Prof.Ilhami ORAK</Text>
-                            </TouchableOpacity>
-                        </View>
+
+                    {requestList.map((item, index) => (
+                              <View key={index} style={styles.smallCardRed2}>
+                              <TouchableOpacity onPress={goToLecturerProfile}>
+                                  <Text style={styles.smallCardTextRed2}>{item.receiver}</Text>
+                               </TouchableOpacity>
+                              </View>
+                    ))}
+
                     </ScrollView>
                 </View>
                 <View style={styles.courseCardGreen2}>
@@ -234,24 +170,15 @@ const Requests = () => {
                        <Text style={styles.headerCardTitle2}>Request Type</Text>
                     </View>
                     <ScrollView>
-                        <View style={styles.smallCardGreen2}>
-                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen2}>
-                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen2}>
-                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen2}>
-                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen2}>
-                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardGreen2}>
-                            <Text style={styles.smallCardTextGreen2}>Internship</Text>
-                        </View>
+
+
+                    {requestList.map((item, index) => (
+                              <View key={index+10} style={styles.smallCardGreen2}>
+                              <Text style={styles.smallCardTextGreen2}>{item.requestType}</Text>
+                              </View>
+
+                    ))}
+
                     </ScrollView>
                 </View>
                 <View style={styles.courseCardYellow2}>
@@ -259,24 +186,13 @@ const Requests = () => {
                        <Text style={styles.headerCardTitle2}>Request Type</Text>
                     </View>
                     <ScrollView>
-                        <View style={styles.smallCardYellow2}>
-                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardYellow2}>
-                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardYellow2}>
-                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardYellow2}>
-                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardYellow2}>
-                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
-                        </View>
-                        <View style={styles.smallCardYellow2}>
-                            <Text style={styles.smallCardTextYellow2}>Internship</Text>
-                        </View>
+
+                    {requestList.map((item, index) => (
+                              <View key={index+20} style={styles.smallCardYellow2}>
+                              <Text style={styles.smallCardTextYellow2}>{item.requestType}</Text>
+                              </View>
+
+                    ))}
                     </ScrollView>
                 </View>
                 <View style={styles.courseCardBlue2}>
@@ -284,36 +200,14 @@ const Requests = () => {
                        <Text style={styles.headerCardTitle2}>Action</Text>
                    </View>
                    <ScrollView>
-                        <View style={styles.smallCardBlue2}>
-                            <View style={styles.smallCardWhite2}>
-                                <Text style={styles.smallCardTextBlue2}>Show</Text>    
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue2}>
-                            <View style={styles.smallCardWhite2}>
-                                <Text style={styles.smallCardTextBlue2}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue2}>
-                        <View style={styles.smallCardWhite2}>
-                                <Text style={styles.smallCardTextBlue2}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue2}>
-                        <View style={styles.smallCardWhite2}>
-                                <Text style={styles.smallCardTextBlue2}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue2}>
-                        <View style={styles.smallCardWhite2}>
-                                <Text style={styles.smallCardTextBlue}>Show</Text>
-                            </View>
-                        </View>
-                        <View style={styles.smallCardBlue2}>
-                        <View style={styles.smallCardWhite2}>
-                                <Text style={styles.smallCardTextBlue2}>Show</Text>
-                            </View>
-                        </View>
+
+                   {requestList.map((item, index) => (
+                      <View style={styles.smallCardBlue2}>
+                          <View style={styles.smallCardWhite2}>
+                              <Text style={styles.smallCardTextBlue2}>Show</Text>    
+                          </View>
+                      </View>
+                    ))}
                     </ScrollView>
                     </View>
                </ScrollView>

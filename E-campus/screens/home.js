@@ -11,6 +11,18 @@ const Home = () => {
   const navigation = useNavigation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const scheduleData = [
+    { time: '10:00', subject: 'MAT209 Mathematics', style: 'redrec' },
+    { time: '11:00', subject: 'PHY101 Physics', style: 'greenrec' },
+    { time: '12:00', subject: 'CHE102 Chemistry', style: 'bluerec' },
+    { time: '01:00', subject: 'BIO103 Biology', style: 'redrec' },
+    { time: '02:00', subject: 'CSE104 Computer Science', style: 'greenrec' },
+    { time: '03:00', subject: 'ENG105 English', style: 'bluerec' },
+    { time: '04:00', subject: 'HIS106 History', style: 'redrec' },
+    { time: '05:00', subject: 'GEO107 Geography', style: 'greenrec' },
+    { time: '06:00', subject: 'ART108 Art', style: 'bluerec' },
+  ];
+
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
@@ -90,14 +102,12 @@ const Home = () => {
           <View style={styles.recscontainer}>
             <Text style={styles.subhead}>Timeline</Text>
             <ScrollView>
-            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
+            {scheduleData.map((item, index) => (
+              <View key={index} style={styles[item.style]}>
+                <Text style={styles.subsubtext}>{item.time}</Text>
+                <Text style={styles.subsubredtext}>{item.subject}</Text>
+              </View>
+            ))}
           </ScrollView>
           </View>
           
