@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import  Drawer from '../shared/drawer';
+import  BottomNavBar from '../shared/bottomNavbar';
 
 const LecturerProfile = () => {
     const navigation = useNavigation();
@@ -68,45 +67,15 @@ const LecturerProfile = () => {
     }
   };
   return (
-   
-   
     <View style={styles.container}>
-      
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
+    <Drawer
+    isDrawerOpen={isDrawerOpen}
+    setIsDrawerOpen={setIsDrawerOpen}
+    isLecturer={false}/>
 
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Courses')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroups')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Department')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
-
-
+{!isDrawerOpen && (
+<View style={styles.mainContent}>
+  
 <ScrollView>
             <View style={styles.HeaderRed}>
             <Image
@@ -151,38 +120,35 @@ const LecturerProfile = () => {
       </View>
    
   </ScrollView>
+  </View>
 
-
-
-
+)} 
+{!isDrawerOpen && (
 <TouchableOpacity style={styles.chatpot}>
-        <Ionicons name="help-circle-sharp" size={30} color="white" />
-      </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        
-        <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
-    </View>
-    
-  );
-};
+  <Ionicons name="help-circle-sharp" size={30} color="white" />
+</TouchableOpacity>
+)} 
 
+
+{!isDrawerOpen && (
+  <BottomNavBar 
+  isLecturer={false}/>
+)} 
+</View>
+);
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',
+    backgroundColor: '#ffffff',
   },
-  
+  mainContent: {
+    zIndex: 0,
+    height: '82%',
+    left:0,
+    right:0
+  },
 navBar: {
   flexDirection: 'row',
   alignItems: 'center',

@@ -5,67 +5,37 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import  Drawer from '../../shared/drawer';
+import  BottomNavBar from '../../shared/bottomNavbar';
 
 
 const HomeLecturer = () => {
   const navigation = useNavigation();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
-  const handleLogOut = () => {
-    navigation.navigate('E-campus');
-  };
-
-  const handleDrawerItemPress = (screenName) => {
-    navigation.navigate(screenName);
-    setIsDrawerOpen(false); // Close the drawer after navigating
-  };
-  const handleBottomNavBar = (screenName) => {
-    navigation.navigate(screenName);
-  };
+  const scheduleData = [
+    { time: '10:00', subject: 'MAT209 Mathematics', style: 'redrec' },
+    { time: '11:00', subject: 'PHY101 Physics', style: 'greenrec' },
+    { time: '12:00', subject: 'CHE102 Chemistry', style: 'bluerec' },
+    { time: '01:00', subject: 'BIO103 Biology', style: 'redrec' },
+    { time: '02:00', subject: 'CSE104 Computer Science', style: 'greenrec' },
+    { time: '03:00', subject: 'ENG105 English', style: 'bluerec' },
+    { time: '04:00', subject: 'HIS106 History', style: 'redrec' },
+    { time: '05:00', subject: 'GEO107 Geography', style: 'greenrec' },
+    { time: '06:00', subject: 'ART108 Art', style: 'bluerec' },
+  ];
 
   return (
-   
-   
     <View style={styles.container}>
-      
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
+    <Drawer
+    isDrawerOpen={isDrawerOpen}
+    setIsDrawerOpen={setIsDrawerOpen}
+    isLecturer={true}/>
 
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('ProfileLecturer')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('RequestsLecturer')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('CoursesLecturer')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroupsLecturer')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('DepartmentLecturer')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
-
-  <ScrollView>
+{!isDrawerOpen && (
+<View style={styles.mainContent}>
+  
+<ScrollView>
       <Text style={styles.maintext}>Welcome <Text style={styles.subtext}>lec</Text> !</Text>
       <Text style={styles.heading}>Today’s Schedule</Text>
       
@@ -90,15 +60,13 @@ const HomeLecturer = () => {
           <View style={styles.recscontainer}>
             <Text style={styles.subhead}>Timeline</Text>
             <ScrollView>
-            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.redrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.greenrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.bluerec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-            <View style={styles.yellowrec}><Text style={styles.subsubtext}>10:00</Text><Text style={styles.subsubredtext}>MAT209 Mathematics</Text></View>
-          </ScrollView>
+            {scheduleData.map((item, index) => (
+              <View key={index} style={styles[item.style]}>
+                <Text style={styles.subsubtext}>{item.time}</Text>
+                <Text style={styles.subsubredtext}>{item.subject}</Text>
+              </View>
+            ))}
+            </ScrollView>
           </View>
           
         </View>
@@ -134,32 +102,34 @@ const HomeLecturer = () => {
         </ScrollView>
       
         </ScrollView>
-        <TouchableOpacity style={styles.chatpot}>
+        </View>
+
+      )} 
+      {!isDrawerOpen && (
+      <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
       </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        
-        <TouchableOpacity onPress={() => handleBottomNavBar('NotificationsLecturer')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('HomeLecturer')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('MessagesLecturer')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
+      )} 
+
+
+      {!isDrawerOpen && (
+        <BottomNavBar 
+        isLecturer={true}/>
+      )} 
     </View>
-    
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',
     backgroundColor:'#FFFFFF'
+  },
+  mainContent: {
+    zIndex: 0,
+    height: '82%',
+    left:0,
+    right:0
   },
   
   navBar: {

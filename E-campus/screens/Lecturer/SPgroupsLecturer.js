@@ -8,6 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import  Drawer from '../../shared/drawer';
 import { Feather } from '@expo/vector-icons';
+import  BottomNavBar from '../../shared/bottomNavbar';
 
 const SPgroupsLecturer = () => {
 const navigation = useNavigation();
@@ -34,12 +35,14 @@ const goToSPgroup = () => {
   
   return (
     <View style={styles.container}>
-      
     <Drawer
-        isDrawerOpen={isDrawerOpen}
-        setIsDrawerOpen={setIsDrawerOpen}/>
-    {!isDrawerOpen && (
-    <View style={styles.mainContent}>
+    isDrawerOpen={isDrawerOpen}
+    setIsDrawerOpen={setIsDrawerOpen}
+    isLecturer={true}/>
+
+  {!isDrawerOpen && (
+  <View style={styles.mainContent}>
+  
       <ScrollView> 
         <Text style={styles.heading}>Senior Project Group</Text>
         <View style={styles.tableHeaderNotification}>
@@ -117,43 +120,34 @@ const goToSPgroup = () => {
           </ScrollView>    
           </View>
          </ScrollView> 
-    </View>
-      )} 
 
-       {!isDrawerOpen && (    
-        <TouchableOpacity style={styles.chatpot}>
-          <Ionicons name="help-circle-sharp" size={30} color="white" />
-        </TouchableOpacity>
-  )} 
+         </View>
 
-        {!isDrawerOpen && (
-        <View style={styles.bottomNavBar}>
-          <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-          <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-              <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-            <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-              <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-            </TouchableOpacity> 
-        </View>
-     )} 
+)} 
+{!isDrawerOpen && (
+<TouchableOpacity style={styles.chatpot}>
+ <Ionicons name="help-circle-sharp" size={30} color="white" />
+</TouchableOpacity>
+)} 
 
 
-        
-    </View>
-    
-  );
+{!isDrawerOpen && (
+ <BottomNavBar 
+ isLecturer={true}/>
+)} 
+</View>
+ );
 };
 
 
 const styles = StyleSheet.create({
     container: {
       flex: 1
-    },
-    mainContent: {
-      zIndex: 0
+    },mainContent: {
+      zIndex: 0,
+      height: '82%',
+      left:0,
+      right:0
     },
  navBar: {
     flexDirection: 'row',

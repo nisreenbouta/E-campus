@@ -12,7 +12,7 @@ const MyLayout = () => {
     <View style={styles.container}>
             
           
-            <Drawer
+        <Drawer
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
         isLecturer={false}/>
@@ -28,7 +28,8 @@ const MyLayout = () => {
        )} 
 
                
-               <BottomNavbar />
+        <BottomNavBar 
+        isLecturer={false}/>
          
 
     </View>

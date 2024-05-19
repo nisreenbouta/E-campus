@@ -4,11 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-const BottomNavbar = () => {
+const BottomNavbar = ({setIsDrawerOpen, isLecturer}) => {
   const navigation = useNavigation();
 
-  const handleBottomNavBar = (screenName) => {
-    navigation.navigate(screenName);
+  const handleBottomNavBar = (screenIdentifier) => {
+    const screenName = isLecturer ? `${screenIdentifier}Lecturer` : screenIdentifier;
+      navigation.navigate(screenName);
   };
 
   return (
@@ -23,6 +24,8 @@ const BottomNavbar = () => {
             <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
               <Ionicons name="mail-sharp" size={24} color="white" style={styless.bottomNavBarContent}/>
             </TouchableOpacity> 
+            {isLecturer}
+           {!isLecturer}
         </View>
     </View>
   );

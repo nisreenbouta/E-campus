@@ -145,10 +145,14 @@ const styles = StyleSheet.create({
   tableHeader:{
     flexDirection: 'row',
     alignItems: 'center',
-    width: 360,
+    width: 380,
     height: 37,
-    marginLeft:16,
-  }, card: {
+    marginLeft:7,
+    paddingHorizontal:7,
+    borderRadius: 4,
+    backgroundColor: 'rgba(210, 210, 210, 0.50)', 
+  },
+   card: {
     flexDirection:'row',
     width: 360,
     height: 322,
@@ -166,10 +170,11 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     width: 340,
     height: 86,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#ffffff',
     borderRadius: 4,
     marginBottom:7,
     paddingHorizontal:5,
+    
  },
  ProfilePicIcon: {
   width: 70, 
@@ -328,7 +333,19 @@ card: {
   padding: 5,
   marginLeft: 16
 },
-
+mainContent: {
+  zIndex: 0,
+  height: '82%',
+  left:0,
+  right:0
+},
+  icon: {
+    marginLeft:'60%',
+  },
+  textInput: {
+    fontSize: 12,
+    marginLeft: '7%',
+  },
 })
 
 export default styles; 

@@ -16,7 +16,7 @@ const Drawer = ({isDrawerOpen, setIsDrawerOpen, isLecturer}) => {
   };
 
   const handleDrawerItemPress = (screenIdentifier) => {
-    const screenName = isLecturer ? `${screenIdentifier}Lecturer` : screenIdentifier;
+  const screenName = isLecturer ? `${screenIdentifier}Lecturer` : screenIdentifier;
     navigation.navigate(screenName);
     setIsDrawerOpen(false); // Close the drawer after navigating
   };

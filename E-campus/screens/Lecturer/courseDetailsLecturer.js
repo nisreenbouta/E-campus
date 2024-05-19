@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, StyleSheet, ScrollView,Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,Image,TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -43,7 +43,8 @@ const CourseDetailsLecturer = () => {
   <View style={styles.container}>
      <Drawer
         isDrawerOpen={isDrawerOpen}
-        setIsDrawerOpen={setIsDrawerOpen}/>
+        setIsDrawerOpen={setIsDrawerOpen}
+        isLecturer={true}/>
     {!isDrawerOpen && (
  <View style={styles.mainContent}>
     <ScrollView>
@@ -68,17 +69,21 @@ const CourseDetailsLecturer = () => {
           
            <View style={styles.tableHeader}>
            <Text style={styles.category}>Category Name</Text>
-                 <View style={styles.searchBar}>
-                    <Text style={styles.searchText}>Search</Text>
-                    <EvilIcons name="search" size={15} color="gray" />
-                 </View>
-           <View style={styles.whiteFilterButton}>
+           <View style={styles.searchBar}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Search"
+                placeholderTextColor="gray"
+              />
+              <EvilIcons name="search" size={18} color="gray" style={styles.icon} />
+         </View>
+           <TouchableOpacity style={styles.whiteFilterButton}>
               <Text style={styles.whiteFilterButtonText}>Sort By</Text>
-           </View>
-           <View style={styles.whiteFilterButton}>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.whiteFilterButton}>
               <Text style={styles.whiteFilterButtonText}>Filter</Text>
               <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
-           </View>
+           </TouchableOpacity>
           </View>
           <View style={styles.card}>
           <ScrollView>
@@ -156,18 +161,8 @@ const CourseDetailsLecturer = () => {
   )} 
 
         {!isDrawerOpen && (
-        // <View style={styles.bottomNavBar}>
-        //   <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-        //   <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-        //   </TouchableOpacity>
-        //   <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-        //       <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-        //   </TouchableOpacity> 
-        //     <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-        //       <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-        //     </TouchableOpacity> 
-        // </View>
-        <BottomNavBar/>
+        <BottomNavBar 
+        isLecturer={true}/>
      )} 
 
 
@@ -180,12 +175,11 @@ const CourseDetailsLecturer = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      position: 'relative',
+      backgroundColor:'#FFFFFF'
     },
     mainContent: {
       zIndex: 0,
-      top: 50,
-      bottom: 80,
+      height: '82%',
       left:0,
       right:0
     },
@@ -447,6 +441,14 @@ tableCardDate: {
   marginRight:'20%',
   marginLeft: '10%',
   color: '#1F3D75'
+},
+ icon: {
+  marginLeft:'40%',
+},
+textInput: {
+  flex: 1,
+  fontSize: 12,
+  marginLeft: '7%',
 },
 
 })

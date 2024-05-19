@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, StyleSheet, ScrollView,Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView,Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -7,69 +7,28 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import  Drawer from '../shared/drawer';
+import  BottomNavBar from '../shared/bottomNavbar';
 
 
 const CourseDetails = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-     };
-  const handleLogOut = () => {
-    navigation.navigate('E-campus');
-  };
-
-  const handleDrawerItemPress = (screenName) => {
-    navigation.navigate(screenName);
-    setIsDrawerOpen(false); // Close the drawer after navigating
-  };
-  const handleBottomNavBar = (screenName) => {
-    navigation.navigate(screenName);
-  };
-
   const goToLecturerProfile = () => {
     navigation.navigate('LecturerProfile');
   };
   
   return (
-   
-   
     <View style={styles.container}>
-      
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
+    <Drawer
+    isDrawerOpen={isDrawerOpen}
+    setIsDrawerOpen={setIsDrawerOpen}
+    isLecturer={false}/>
 
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Courses')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroups')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Department')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
+{!isDrawerOpen && (
+<View style={styles.mainContent}>
+  
 <ScrollView>
         <Text style={styles.heading}>PRG209 Programming</Text>
         <Text style={styles.describtion}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -92,43 +51,47 @@ const CourseDetails = () => {
           
            <View style={styles.tableHeader}>
            <Text style={styles.category}>Category Name</Text>
-                 <View style={styles.searchBar}>
-                    <Text style={styles.searchText}>Search</Text>
-                    <EvilIcons name="search" size={15} color="gray" />
-                 </View>
-           <View style={styles.whiteFilterButton}>
+           <View style={styles.searchBar}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Search"
+                placeholderTextColor="gray"
+              />
+              <EvilIcons name="search" size={18} color="gray" style={styles.icon} />
+         </View>
+           <TouchableOpacity style={styles.whiteFilterButton}>
               <Text style={styles.whiteFilterButtonText}>Sort By</Text>
-           </View>
-           <View style={styles.whiteFilterButton}>
+           </TouchableOpacity>
+           <TouchableOpacity style={styles.whiteFilterButton}>
               <Text style={styles.whiteFilterButtonText}>Filter</Text>
               <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
-           </View>
+           </TouchableOpacity>
           </View>
           <View style={styles.card}>
           <ScrollView>
-              <View style={styles.smallcard}>
+              <TouchableOpacity style={styles.smallcard}>
                   <Image
                       source={require('../assets/pdf.png')}
                       style={styles.fileTypeImg}  
                     />
                     <View style={styles.textContainerTable}>
-                        <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                        <Text style={styles.tableCardHeading}>Week 1 Exercises.pdf</Text>
                         <Text style={styles.tableCardDate}>1/1/2024</Text>
                     </View>
                     <View style={styles.cardIcon}><Entypo name="dots-three-horizontal" size={10} color="#1F3D75"/></View>
-              </View>
+              </TouchableOpacity>
               <View style={styles.smallcard}>
                   <Image
                       source={require('../assets/excel.png')}
                       style={styles.fileTypeImg}  
                     />
-                    <View style={styles.textContainerTable}>
-                        <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                    <TouchableOpacity style={styles.textContainerTable}>
+                        <Text style={styles.tableCardHeading}>Week 2 Exercises.pdf</Text>
                         <Text style={styles.tableCardDate}>1/1/2024</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={styles.cardIcon}><Entypo name="dots-three-horizontal" size={10} color="#1F3D75"/></View>
               </View>
-              <View style={styles.smallcard}>
+              <TouchableOpacity style={styles.smallcard}>
                   <Image
                       source={require('../assets/pptx.png')}
                       style={styles.fileTypeImg}  
@@ -138,48 +101,51 @@ const CourseDetails = () => {
                         <Text style={styles.tableCardDate}>1/1/2024</Text>
                     </View>
                     <View style={styles.cardIcon}><Entypo name="dots-three-horizontal" size={10} color="#1F3D75"/></View>
-              </View>
-              <View style={styles.smallcard}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.smallcard}>
                   <Image
                       source={require('../assets/docx.png')}
                       style={styles.fileTypeImg}  
                     />
                     <View style={styles.textContainerTable}>
-                        <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                        <Text style={styles.tableCardHeading}>Week 4 Exercises.pdf</Text>
                         <Text style={styles.tableCardDate}>1/1/2024</Text>
                     </View>
                     <View style={styles.cardIcon}><Entypo name="dots-three-horizontal" size={10} color="#1F3D75"/></View>
-              </View>
+              </TouchableOpacity>
           </ScrollView>    
           </View>
           </ScrollView>    
-<TouchableOpacity style={styles.chatpot}>
+                </View>
+
+      )} 
+      {!isDrawerOpen && (
+      <TouchableOpacity style={styles.chatpot}>
         <Ionicons name="help-circle-sharp" size={30} color="white" />
       </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
-    </View>
-    
-  );
-};
+      )} 
+
+
+      {!isDrawerOpen && (
+        <BottomNavBar 
+        isLecturer={false}/>
+      )} 
+      </View>
+      );
+      };
 
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      position: 'relative',
-    },
-    
+  container: {
+    flex: 1,
+    backgroundColor:'#FFFFFF'
+  },
+  mainContent: {
+    zIndex: 0,
+    height: '82%',
+    left:0,
+    right:0
+  },
  navBar: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -433,7 +399,13 @@ tableCardDate: {
   marginLeft: '10%',
   color: '#1F3D75'
 },
-
+icon: {
+  marginLeft:'45%',
+},
+textInput: {
+  fontSize: 12,
+  marginLeft: '7%',
+},
 })
 
 export default CourseDetails; 

@@ -9,25 +9,14 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import  Drawer from '../shared/drawer';
+import  BottomNavBar from '../shared/bottomNavbar';
+
 const Department = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-     };
-  const handleLogOut = () => {
-    navigation.navigate('E-campus');
-  };
-  const handleBottomNavBar = (screenName) => {
-    navigation.navigate(screenName);
-  };
-  
-
-  const handleDrawerItemPress = (screenName) => {
-    navigation.navigate(screenName);
-    setIsDrawerOpen(false); // Close the drawer after navigating
-  };
+ 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoSliding, setIsAutoSliding] = useState(true);
   const flatListRef = useRef(null);
@@ -75,43 +64,15 @@ const Department = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
   return (
-   
-   
     <View style={styles.container}>
-      
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
+    <Drawer
+    isDrawerOpen={isDrawerOpen}
+    setIsDrawerOpen={setIsDrawerOpen}
+    isLecturer={false}/>
 
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Courses')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroups')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Department')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
+{!isDrawerOpen && (
+<View style={styles.mainContent}>
+  
 <ScrollView>
   <FlatList
         ref={flatListRef}
@@ -337,33 +298,35 @@ const Department = () => {
           </View>    
   </View>
   </ScrollView>
-     
+  </View>
+
+)} 
+{!isDrawerOpen && (
 <TouchableOpacity style={styles.chatpot}>
-        <Ionicons name="help-circle-sharp" size={30} color="white" />
-      </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        
-        <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
-    </View>
-    
-  );
+  <Ionicons name="help-circle-sharp" size={30} color="white" />
+</TouchableOpacity>
+)} 
+
+
+{!isDrawerOpen && (
+  <BottomNavBar 
+  isLecturer={false}/>
+)} 
+</View>
+);
 };
 
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      position: 'relative',
+      backgroundColor: '#ffffff',
+    },
+    mainContent: {
+      zIndex: 0,
+      height: '82%',
+      left:0,
+      right:0
     },
     
  navBar: {

@@ -32,9 +32,10 @@ const CoursesLecturer = () => {
   return (   
 <View style={styles.container}>
 
-    <Drawer
+     <Drawer
         isDrawerOpen={isDrawerOpen}
-        setIsDrawerOpen={setIsDrawerOpen}/>
+        setIsDrawerOpen={setIsDrawerOpen}
+        isLecturer={true}/>
       
       {!isDrawerOpen && (
       <View style={styles.mainContent}>
@@ -171,7 +172,8 @@ const CoursesLecturer = () => {
 
 
 {!isDrawerOpen && (
-        <BottomNavBar/>
+        <BottomNavBar 
+        isLecturer={true}/>
      )} 
     </View>
     
@@ -182,12 +184,10 @@ const CoursesLecturer = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      position: 'relative',
     },
     mainContent: {
       zIndex: 0,
-      top: 50,
-      bottom: 80,
+      height: '82%',
       left:0,
       right:0
     },

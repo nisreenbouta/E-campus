@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, StatusBar, TouchableOpacity, StyleSheet, ScrollView,Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import  Drawer from '../shared/drawer';
+import  BottomNavBar from '../shared/bottomNavbar';
+
 const SPgroups = () => {
     const navigation = useNavigation();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -32,43 +33,16 @@ const SPgroups = () => {
   };
   
   return (
-   
-   
+     
     <View style={styles.container}>
-      
-      <View style={styles.navBar}>
-        <TouchableOpacity onPress={toggleDrawer} style={styles.menuButton}>
-          <Ionicons name={isDrawerOpen ? 'close' : 'menu'} size={35} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.title}>E-Campus</Text>
-      </View>
+    <Drawer
+    isDrawerOpen={isDrawerOpen}
+    setIsDrawerOpen={setIsDrawerOpen}
+    isLecturer={false}/>
 
-       
-    {/*  Drawer Content Goes Here */}
-    {isDrawerOpen && (
-        <View style={styles.drawer}>
-
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Profile')}>
-            <Text style={styles.drawerContent}>Profile</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Requests')} >
-            <Text style={styles.drawerContent}>Requests</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Courses')} >
-            <Text style={styles.drawerContent}>Courses</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('SPgroups')} >
-            <Text style={styles.drawerContent}>Senior Project Groups</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleDrawerItemPress('Department')} >
-            <Text style={styles.drawerContent}>Department</Text>
-          </TouchableOpacity>
-        
-          <TouchableOpacity style={styles.button} onPress={handleLogOut}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </TouchableOpacity>
-        </View>
-      )}
+{!isDrawerOpen && (
+<View style={styles.mainContent}>
+  
       <ScrollView> 
       <Text style={styles.heading}>Senior Project Group</Text>
       <View style={styles.courseCardRed}>
@@ -77,8 +51,8 @@ const SPgroups = () => {
            <Text style={styles.redHeading}> Members</Text>
         </View>
            <Text style={styles.members}> 1.Nisreen Bouta</Text>
-           <Text style={styles.members}> 1.Nisreen Bouta</Text>
-           <Text style={styles.members}> 1.Nisreen Bouta</Text>
+           <Text style={styles.members}> 2.James Michale</Text>
+           <Text style={styles.members}> 3.Lexa North</Text>
       </View>
 
       <TouchableOpacity onPress={goToLecturerProfile}>
@@ -98,23 +72,23 @@ const SPgroups = () => {
           <View style={styles.tableHeader}>
               <Text style={styles.category}>Files & Reports</Text>
                     
-              <View style={styles.whiteFilterButton}>
+              <TouchableOpacity style={styles.whiteFilterButton}>
                 <Text style={styles.whiteFilterButtonText}>Add File +</Text>
-              </View>
-              <View style={styles.whiteFilterButton}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.whiteFilterButton}>
                 <Text style={styles.whiteFilterButtonText}>Filter</Text>
                 <MaterialCommunityIcons name="filter-menu" size={10} color="#C8272E" />
-              </View>
+              </TouchableOpacity>
          </View>
          <View style={styles.card}>
          <ScrollView>
-             <View style={styles.smallcard}>
+             <TouchableOpacity style={styles.smallcard}>
                  <Image
                      source={require('../assets/pdf.png')}
                      style={styles.fileTypeImg}  
                    />
                    <View style={styles.textContainerTable}>
-                       <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                       <Text style={styles.tableCardHeading}>Report week 1.pdf</Text>
                        <Text style={styles.tableCardDate}>1/1/2024</Text>
                    </View>
                    
@@ -125,14 +99,14 @@ const SPgroups = () => {
                              <AntDesign name="delete" size={13} color="#1F3D75" />
                       </View>
                    </View>
-             </View>
-             <View style={styles.smallcard}>
+             </TouchableOpacity>
+             <TouchableOpacity style={styles.smallcard}>
                  <Image
-                     source={require('../assets/excel.png')}
+                     source={require('../assets/pdf.png')}
                      style={styles.fileTypeImg}  
                    />
                    <View style={styles.textContainerTable}>
-                       <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                       <Text style={styles.tableCardHeading}>Report week 2.pdf</Text>
                        <Text style={styles.tableCardDate}>1/1/2024</Text>
                    </View>
                    <View style={styles.textContainerTable}>
@@ -142,14 +116,14 @@ const SPgroups = () => {
                              <AntDesign name="delete" size={13} color="#1F3D75" />
                       </View>
                    </View>
-             </View>
-             <View style={styles.smallcard}>
+             </TouchableOpacity>
+             <TouchableOpacity style={styles.smallcard}>
                  <Image
-                     source={require('../assets/pptx.png')}
+                     source={require('../assets/pdf.png')}
                      style={styles.fileTypeImg}  
                    />
                    <View style={styles.textContainerTable}>
-                       <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                       <Text style={styles.tableCardHeading}>Report week 3.pdf</Text>
                        <Text style={styles.tableCardDate}>1/1/2024</Text>
                    </View>
                    <View style={styles.textContainerTable}>
@@ -159,14 +133,14 @@ const SPgroups = () => {
                              <AntDesign name="delete" size={13} color="#1F3D75" />
                       </View>
                    </View>
-             </View>
-             <View style={styles.smallcard}>
+             </TouchableOpacity>
+             <TouchableOpacity style={styles.smallcard}>
                  <Image
-                     source={require('../assets/docx.png')}
+                     source={require('../assets/pdf.png')}
                      style={styles.fileTypeImg}  
                    />
                    <View style={styles.textContainerTable}>
-                       <Text style={styles.tableCardHeading}>Week 3 Exercises.pdf</Text>
+                       <Text style={styles.tableCardHeading}>Report week 4.pdf</Text>
                        <Text style={styles.tableCardDate}>1/1/2024</Text>
                    </View>
                    <View style={styles.textContainerTable}>
@@ -176,38 +150,39 @@ const SPgroups = () => {
                              <AntDesign name="delete" size={13} color="#1F3D75" />
                       </View>
                    </View>
-             </View>
+             </TouchableOpacity>
          </ScrollView>    
          </View>
          </ScrollView> 
+         </View>
 
+)} 
+{!isDrawerOpen && (
 <TouchableOpacity style={styles.chatpot}>
-        <Ionicons name="help-circle-sharp" size={30} color="white" />
-      </TouchableOpacity>
-     
-        <View style={styles.bottomNavBar}>
-        <TouchableOpacity onPress={() => handleBottomNavBar('Notifications')}>
-         <MaterialIcons name="notifications" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity>
-         <TouchableOpacity onPress={() => handleBottomNavBar('Home')}>
-            <MaterialCommunityIcons name="home-variant" size={24} color="white" style={styles.bottomNavBarContent}/>
-         </TouchableOpacity> 
-          <TouchableOpacity onPress={() => handleBottomNavBar('Messages')}>
-            <Ionicons name="mail-sharp" size={24} color="white" style={styles.bottomNavBarContent}/>
-          </TouchableOpacity> 
-        </View>
-    </View>
-    
-  );
+  <Ionicons name="help-circle-sharp" size={30} color="white" />
+</TouchableOpacity>
+)} 
+
+
+{!isDrawerOpen && (
+  <BottomNavBar 
+  isLecturer={false}/>
+)} 
+</View>
+);
 };
 
-
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      position: 'relative',
-    },
-    
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  mainContent: {
+    zIndex: 0,
+    height: '82%',
+    left:0,
+    right:0
+  },
  navBar: {
     flexDirection: 'row',
     alignItems: 'center',
