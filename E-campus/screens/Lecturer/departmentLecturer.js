@@ -336,6 +336,7 @@ const DepartmentLecturer = () => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor:'#FFFFFF'
     },
     mainContent: {
       zIndex: 0,
